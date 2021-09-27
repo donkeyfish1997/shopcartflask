@@ -1,6 +1,7 @@
 from app import app
 from flask_cors import cross_origin
 from app.view import user
+from app.view import productView
 
 
 @app.route("/")
@@ -31,6 +32,19 @@ def logout():
 def isLogined():
     return user.isLogined()
 
+@app.route("/user/orderList", methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
+def orderList():
+    return productView.orderList()
+@app.route("/user/cartList", methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
+def cartList():
+    return productView.cartList()
+@app.route("/user/cartDel", methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
+def cartDel():
+    return productView.cartDel()
+
 
 @app.route("/user/getUsernameFromSession", methods=['GET', 'POST'])
 @cross_origin(supports_credentials=True)
@@ -41,10 +55,22 @@ def getUsernameFromSession():
 @app.route("/search")
 @cross_origin(supports_credentials=True)
 def search():
-    return user.search()
+    return productView.search()
 
 
 @app.route("/product")
 @cross_origin(supports_credentials=True)
 def product():
-    return user.product()
+    return productView.product()
+
+@app.route("/product/addOrder",methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
+def addOrder():
+    return productView.addOrder()
+
+@app.route("/product/addCart",methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
+def addCart():
+    return productView.addCart()
+
+

@@ -40,6 +40,8 @@ def pchomeitem(id):
     info['id'] = dic_kword['Id']
     info['liability'] = dic_kword['Liability']
     info['slogan'] = dic_kword['Slogan']
+    soup = BeautifulSoup(info['slogan'], 'html.parser')
+    info['slogan'] = soup.text
 
     res_intro = session.get(url_intro, headers=headers).text
     dic_intro = ana_json(res_intro)
@@ -53,22 +55,3 @@ def ana_json(info):
     dic_info = json.loads(spl_info)
 
     return dic_info
-
-
-# %%
-if __name__ == "__main__":
-    id = 'DYAJ2N-1900BSH2M'
-    a = (pchomeitem(id))
-    a =a['slogan']
-    # print(pchomeSearch('apple',1))
-
-# %%
-soup = BeautifulSoup(a, 'html.parser')
-
-# %%
-from bs4 import BeautifulSoup
-
-
-# %%
-
-# %%

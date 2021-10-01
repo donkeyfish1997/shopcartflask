@@ -1,4 +1,4 @@
-from app import app
+from app import app,db
 from flask_cors import cross_origin
 from app.view import user
 from app.view import productView
@@ -77,5 +77,6 @@ def addCart():
     return productView.addCart()
 
 if __name__ == "__main__":
+    db.create_all()
     app.run()
 

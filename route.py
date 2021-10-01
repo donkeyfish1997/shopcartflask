@@ -75,14 +75,14 @@ def addOrder():
 @cross_origin(supports_credentials=True)
 def addCart():
     return productView.addCart()
-@app.route("/createTable")
-def create():
-    db.create_all()
-    db.session.commit()
-    return '123'
+# @app.route("/createTable")
+# def create():
+#     db.create_all()
+#     db.session.commit()
+#     return '123'
 
 db.create_all()
 if __name__ == "__main__":
-    # app.run()
+    app.run()
     pass
 

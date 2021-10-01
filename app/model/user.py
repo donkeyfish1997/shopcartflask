@@ -8,13 +8,13 @@ class User(db.Model):
     password = db.Column(db.String(30), nullable=False)
     sex = db.Column(db.String(5), nullable=False)
     text = db.Column(db.String(30))
-    pic = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
-        return f'username:{self.username}, email:{self.email}, password:{self.password}, sex:{self.sex}, text:{self.text}, pic:{self.pic},'
+        return f'username:{self.username}, email:{self.email}, password:{self.password}, sex:{self.sex}, text:{self.text},'
 
 
 def _add(**args):
+    print(args)
     if User.query.filter_by(username=args['username']).first():
         return (False,{'username':'username 已被使用過'})
     if User.query.filter_by(email=args['email']).first():

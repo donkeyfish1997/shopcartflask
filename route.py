@@ -51,6 +51,9 @@ def cartDel():
 def getUsernameFromSession():
     return user.getUsernameFromSession()
 
+@app.route("/user/avatar/<username>")
+def getAvatar(username):
+    return user.getAvatar(username)
 
 @app.route("/search")
 @cross_origin(supports_credentials=True)
@@ -73,4 +76,6 @@ def addOrder():
 def addCart():
     return productView.addCart()
 
+if __name__ == "__main__":
+    app.run()
 

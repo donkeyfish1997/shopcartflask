@@ -1,9 +1,9 @@
 from app import app,db
-from flask_cors import cross_origin
+from flask_cors import cross_origin,CORS
 from app.view import user
 from app.view import productView
 
-
+CORS(app)
 @app.route("/")
 def index():
     return 'index'

@@ -10,6 +10,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://b4937878ebe4b6:0080f4bb@us-cdbr
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['SESSION_COOKIE_SAMESITE']='None'
 app.config['SESSION_COOKIE_SECURE']='True'
+
+app.config['SQLALCHEMY_POOL_RECYCLE'] = 499
+app.config['SQLALCHEMY_POOL_TIMEOUT'] = 20
 db = SQLAlchemy(app) 
 
 app.config['SECRET_KEY'] = 'test'

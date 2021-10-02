@@ -3,45 +3,39 @@ from flask_cors import cross_origin,CORS
 from app.view import user
 from app.view import productView
 
-CORS(app)
+CORS(app,headers=['Content-Type'], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
+
 @app.route("/")
 def index():
     return 'index'
 
 
 @app.route("/user/add", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def addUser():
     return user.addUser()
 
 
 @app.route("/user/login", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def login():
     return user.login()
 
 
 @app.route("/user/logout", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def logout():
     return user.logout()
 
 
 @app.route("/user/isLogined", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def isLogined():
     return user.isLogined()
 
 @app.route("/user/orderList", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def orderList():
     return productView.orderList()
 @app.route("/user/cartList", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def cartList():
     return productView.cartList()
 @app.route("/user/cartDel", methods=['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def cartDel():
     return productView.cartDel()
 

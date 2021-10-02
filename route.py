@@ -2,6 +2,7 @@ from app import app,db
 from flask_cors import cross_origin,CORS
 from app.view import user
 from app.view import productView
+import logging
 
 CORS(app,headers=['Content-Type'],origins=["https://shopcartvue.herokuapp.com"], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
 
@@ -74,6 +75,8 @@ def addCart():
 #     db.create_all()
 #     db.session.commit()
 #     return '123'
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 if __name__ == "__main__":
     app.debug = True
     app.run()

@@ -3,7 +3,7 @@ from flask_cors import cross_origin,CORS
 from app.view import user
 from app.view import productView
 
-CORS(app,headers=['Content-Type'], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
+CORS(app,headers=['Content-Type'],origins=["https://shopcartvue.herokuapp.com"], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
 
 @app.route("/")
 def index():

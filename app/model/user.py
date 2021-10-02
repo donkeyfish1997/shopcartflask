@@ -3,6 +3,7 @@ from .. import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True,)
+    pic=db.Column(db.LargeBinary)
     username = db.Column(db.String(30), unique=True, nullable=False)
     email = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(30), nullable=False)
@@ -29,4 +30,9 @@ def _login(**args):
     user = User.query.filter_by(email=args['email'],password = args['password']).first()
     if user:
         return user
+    return None
+def _getAvatar(name):
+    user = User.query.filter_by(username=name).first()
+    if user:
+        return user.pic
     return None

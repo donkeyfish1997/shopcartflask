@@ -2,7 +2,7 @@ from app import app,db
 from flask_cors import cross_origin,CORS
 from app.view import user
 from app.view import productView
-import logging
+import logging,sys
 
 CORS(app,headers=['Content-Type'],origins=["https://shopcartvue.herokuapp.com"], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
 

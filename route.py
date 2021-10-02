@@ -4,7 +4,7 @@ from app.view import user
 from app.view import productView
 import logging,sys
 
-CORS(app,headers=['Content-Type'],origins=["https://shopcartvue.herokuapp.com"], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
+CORS(app,headers=['Content-Type'],origins=["https://shopcartvue.herokuapp.com","http://127.0.0.1:8080"], expose_headers=['Access-Control-Allow-Origin'],  supports_credentials=True)
 
 @app.route("/")
 def index():

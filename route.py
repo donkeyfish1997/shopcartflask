@@ -74,8 +74,8 @@ def addCart():
 #     db.create_all()
 #     db.session.commit()
 #     return '123'
-app.debug = True
 if __name__ == "__main__":
+    app.debug = True
     app.run()
     pass
 
